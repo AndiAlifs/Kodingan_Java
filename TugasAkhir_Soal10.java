@@ -104,14 +104,51 @@ public class TugasAkhir_Soal10 {
                 oper = tambahOper(oper,oper_new);
                 grup = tambahGrup(grup,grup_new);
             } else if (pil==2){
-                System.out.println("======DAFTAR KONTAK======");
-                System.out.printf("%-10s","NAMA");
-                System.out.printf("%-20s","ALAMAT");
-                System.out.printf("%-11s","NO. HP");
-                System.out.printf("%-10s","PROVIDER");
-                System.out.printf("%-20s%n","GRUP");
-                for (int i=0;i<nama.length;i++) {
-                    cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
+                int pil_kontak = 0;
+                System.out.println("1. Menampilkan kontak seluruhnya");
+                System.out.println("2. Menampilkan kontak per grup");
+                System.out.print("Masukkan pilihan : ");
+                pil_kontak = in.nextInt();
+                if (pil_kontak==2){
+                  System.out.println("1. Pemdas");
+                  System.out.println("2. Pemlan");
+                  System.out.println("3. ASD");
+                  System.out.println("4. Jarkom");
+                  System.out.print("Masukkan pilihan grup yang ingin ditampilkan : ");
+                  pil_kontak = in.nextInt();
+                  System.out.println("======DAFTAR KONTAK======");
+                  System.out.printf("%-10s","NAMA");
+                  System.out.printf("%-20s","ALAMAT");
+                  System.out.printf("%-11s","NO. HP");
+                  System.out.printf("%-10s","PROVIDER");
+                  System.out.printf("%-20s%n","GRUP");
+                  if (pil_kontak==1){
+                      for (int i=0;i<nama.length;i++) {
+                          if (grup[i].equals("Pemdas")) cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
+                      };
+                  } else if (pil_kontak==2){
+                      for (int i=0;i<nama.length;i++) {
+                          if (grup[i].equals("Pemlan")) cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
+                      };
+                  } else if (pil_kontak==3){
+                      for (int i=0;i<nama.length;i++) {
+                          if (grup[i].equals("ASD")) cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
+                      };
+                  } else if (pil_kontak==4){
+                      for (int i=0;i<nama.length;i++) {
+                          if (grup[i].equals("Jarkom")) cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
+                      };
+                  };
+                } else {
+                  System.out.println("======DAFTAR KONTAK======");
+                  System.out.printf("%-10s","NAMA");
+                  System.out.printf("%-20s","ALAMAT");
+                  System.out.printf("%-11s","NO. HP");
+                  System.out.printf("%-10s","PROVIDER");
+                  System.out.printf("%-20s%n","GRUP");
+                  for (int i=0;i<nama.length;i++) {
+                      cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
+                  }
                 };
             } else if (pil==3){
                 System.out.println("======PENCARIAN NAMA======");
@@ -161,4 +198,5 @@ public class TugasAkhir_Soal10 {
         };
         System.out.println("======PROGRAM SELESAI======");
     }
+}
 }
