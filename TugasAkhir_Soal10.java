@@ -10,7 +10,7 @@ public class TugasAkhir_Soal10 {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int pil = 0;
+        byte pil = 0;
         while (pil!=7){
             System.out.println("1. Menambah Kontak baru");
             System.out.println("2. Mencetak Kontak");
@@ -21,7 +21,14 @@ public class TugasAkhir_Soal10 {
             System.out.println("7. Keluar");
             System.out.print("Masukkan pilihan anda : ");
             pil = in.nextInt();
-            case
+            switch(pil){
+              case 1:
+              case 2:
+              case 3:
+              case 4:
+              case 5:
+              case 6:
+            };
             System.out.println();
 
 
