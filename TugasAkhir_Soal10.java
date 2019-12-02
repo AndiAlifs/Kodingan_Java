@@ -64,6 +64,15 @@ public class TugasAkhir_Soal10 {
         System.out.printf("%-12s : %s%n","Grup",grup);
     };
 
+    static void cetakHeader(){
+
+        System.out.printf("%-10s","NAMA");
+        System.out.printf("%-20s","ALAMAT");
+        System.out.printf("%-11s","NO. HP");
+        System.out.printf("%-10s","PROVIDER");
+        System.out.printf("%-20s%n","GRUP");
+    }
+
     public static void main(String[] args) {
         String[] nama = {"Adi","Budi","Didin","Dodo","Candra","Lita","Nina","Citra","Tere"};
         String[] alamat = {"Jl. Sumbersari","Jl. Kertokertoan","Jl. Jalan","Jl. Sigura","Jl. Veteran","Griya shanta","Griya brawijaya","Rusunawa","Dieng"};
@@ -117,11 +126,7 @@ public class TugasAkhir_Soal10 {
                   System.out.print("Masukkan pilihan grup yang ingin ditampilkan : ");
                   pil_kontak = in.nextInt();
                   System.out.println("======DAFTAR KONTAK======");
-                  System.out.printf("%-10s","NAMA");
-                  System.out.printf("%-20s","ALAMAT");
-                  System.out.printf("%-11s","NO. HP");
-                  System.out.printf("%-10s","PROVIDER");
-                  System.out.printf("%-20s%n","GRUP");
+                  cetakHeader();
                   if (pil_kontak==1){
                       for (int i=0;i<nama.length;i++) {
                           if (grup[i].equals("Pemdas")) cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
@@ -141,11 +146,7 @@ public class TugasAkhir_Soal10 {
                   };
                 } else {
                   System.out.println("======DAFTAR KONTAK======");
-                  System.out.printf("%-10s","NAMA");
-                  System.out.printf("%-20s","ALAMAT");
-                  System.out.printf("%-11s","NO. HP");
-                  System.out.printf("%-10s","PROVIDER");
-                  System.out.printf("%-20s%n","GRUP");
+                  cetakHeader();
                   for (int i=0;i<nama.length;i++) {
                       cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
                   }
@@ -188,8 +189,14 @@ public class TugasAkhir_Soal10 {
                   cetak1kontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
                   System.out.println("====PENCARIAN NO. HP SELESAI====");
                 };
-            // } else if (pil==5){
-            //
+            } else if (pil==5){
+              System.out.printf("%-5s","No.");
+              cetakHeader();
+              for (int i=0;i<nama.length;i++) {
+                  System.out.printf("%s%-4s",i+1,".");
+                  cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
+              };
+            }
             // } else if (pil==6){
             //
             // };
@@ -198,5 +205,4 @@ public class TugasAkhir_Soal10 {
         };
         System.out.println("======PROGRAM SELESAI======");
     }
-}
 }
