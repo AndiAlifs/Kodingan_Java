@@ -64,6 +64,16 @@ public class TugasAkhir_Soal10 {
         System.out.printf("%-12s : %s%n","Grup",grup);
     };
 
+    static void cetak1kontak_angka(String nama,String alamat,String noTelp,String oper,String grup){
+
+        System.out.printf("1. %-12s : %s%n","Nama",nama);
+        System.out.printf("2. %-12s : %s%n","Alamat",alamat);
+        System.out.printf("3. %-12s : %s%n","No. Hp",noTelp);
+        System.out.printf("4. %-12s : %s%n","Provider",oper);
+        System.out.printf("5. %-12s : %s%n","Grup",grup);
+        System.out.printf("6. %-12s %n","Selesai mengubah kontak");
+    };
+
     static void cetakHeader(){
 
         System.out.printf("%-10s","NAMA");
@@ -73,15 +83,69 @@ public class TugasAkhir_Soal10 {
         System.out.printf("%-20s%n","GRUP");
     }
 
+    static String[] hapusNama(String[] nama,byte pilihan){
+        String[] baru = new String[nama.length-1];
+        for (int i=pilihan;i<nama.length-1;i++) {
+            nama[i] = nama[i+1];
+        }
+        for(int i=0;i<baru.length;i++){
+            baru[i] = nama[i];
+        }
+        return baru;
+    }
+
+    static String[] hapusAlamat(String[] alamat,byte pilihan){
+        String[] baru = new String[alamat.length-1];
+        for (int i=pilihan;i<alamat.length-1;i++) {
+            alamat[i] = alamat[i+1];
+        }
+        for(int i=0;i<baru.length;i++){
+            baru[i] = alamat[i];
+        }
+        return baru;
+    }
+
+    static String[] hapusNoTelp(String[] noTelp,byte pilihan){
+        String[] baru = new String[noTelp.length-1];
+        for (int i=pilihan;i<noTelp.length-1;i++) {
+            noTelp[i] = noTelp[i+1];
+        }
+        for(int i=0;i<baru.length;i++){
+            baru[i] = noTelp[i];
+        }
+        return baru;
+    }
+
+    static String[] hapusOper(String[] oper,byte pilihan){
+        String[] baru = new String[oper.length-1];
+        for (int i=pilihan;i<oper.length-1;i++) {
+            oper[i] = oper[i+1];
+        }
+        for(int i=0;i<baru.length;i++){
+            baru[i] = oper[i];
+        }
+        return baru;
+    }
+
+    static String[] hapusGrup(String[] grup,byte pilihan){
+        String[] baru = new String[grup.length-1];
+        for (int i=pilihan;i<grup.length-1;i++) {
+            grup[i] = grup[i+1];
+        }
+        for(int i=0;i<baru.length;i++){
+            baru[i] = grup[i];
+        }
+        return baru;
+    }
+
     public static void main(String[] args) {
         String[] nama = {"Adi","Budi","Didin","Dodo","Candra","Lita","Nina","Citra","Tere"};
         String[] alamat = {"Jl. Sumbersari","Jl. Kertokertoan","Jl. Jalan","Jl. Sigura","Jl. Veteran","Griya shanta","Griya brawijaya","Rusunawa","Dieng"};
         String[] noTelp = {"081234568","088721381","087293819","081237821","098213458","081234111","089999222","086523246","088531516"};
         String[] oper = {"XL","Indosat","Simpati","Axis","3","Simpati","XL","Indosat","3"};
-        String[] grup = {"Pemdas","Pemlan","Pemdas" ,"ASD","Pemlan" ,"ASD","Pemdas","Jarkom ","Pemdas"};
+        String[] grup = {"Pemdas","Pemlan","Pemdas" ,"ASD","Pemlan" ,"ASD","Pemdas","Jarkom","Pemdas"};
         Scanner in = new Scanner(System.in);
         byte pil = 0;
-        System.out.println();
         while (pil!=7){
             System.out.println("1. Menambah Kontak baru");
             System.out.println("2. Mencetak Kontak");
@@ -190,17 +254,76 @@ public class TugasAkhir_Soal10 {
                   System.out.println("====PENCARIAN NO. HP SELESAI====");
                 };
             } else if (pil==5){
-              System.out.printf("%-5s","No.");
+              System.out.println("======DAFTAR KONTAK======");
+              System.out.printf("%-3s","No.");
               cetakHeader();
               for (int i=0;i<nama.length;i++) {
-                  System.out.printf("%s%-4s",i+1,".");
+                  int nomor = i+1;
+                  String no = String.valueOf(nomor);
+                  System.out.printf("%-3s",no);
                   cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
               };
-            }
-            // } else if (pil==6){
-            //
-            // };
-            System.out.println();
+              System.out.print("Masukkan nomor kontak yang ingin diubah : ");
+              byte pil_ubah = in.nextByte();
+              pil_ubah-=(byte)1;
+              byte ubah_data=0;
+              do{
+                  cetak1kontak_angka(nama[pil_ubah],alamat[pil_ubah],noTelp[pil_ubah],oper[pil_ubah],grup[pil_ubah]);
+                  System.out.print("Masukkan data kontak yang ingin diubah : ");
+                  ubah_data = in.nextByte();
+                  if (ubah_data==1){
+                      System.out.printf("%s : %s%n","Nama saat ini",nama[pil_ubah]);
+                      System.out.printf("%s : ","Nama Baru");
+                      nama[pil_ubah]=in.next();
+                      System.out.println("DATA BERHASIL DIUBAH");
+                  } else if (ubah_data==2){
+                      System.out.printf("%s : %s%n","Alamat saat ini",alamat[pil_ubah]);
+                      System.out.printf("%s : ","Alamat baru");
+                      alamat[pil_ubah]=in.nextLine();
+                      alamat[pil_ubah]=in.nextLine();
+                      System.out.println("DATA BERHASIL DIUBAH");
+                  } else if (ubah_data==3){
+                      System.out.printf("%s : %s%n","No. Hp saat ini",noTelp[pil_ubah]);
+                      System.out.printf("%s : ","No. Hp baru");
+                      noTelp[pil_ubah]=in.next();
+                      System.out.println("DATA BERHASIL DIUBAH");
+                  } else if (ubah_data==4){
+                      System.out.printf("%s : %s%n","Provider saat ini",oper[pil_ubah]);
+                      System.out.printf("%s : ","Provider baru");
+                      oper[pil_ubah]=in.next();
+                      System.out.println("DATA BERHASIL DIUBAH");
+                  } else if (ubah_data==5){
+                      System.out.printf("%s : %s%n","Grup saat ini",grup[pil_ubah]);
+                      System.out.printf("%s : ","Grup baru");
+                      grup[pil_ubah]=in.next();
+                      System.out.println("DATA BERHASIL DIUBAH");
+                  };
+                  System.out.println();
+              } while(ubah_data!=6);
+            } else if (pil==6){
+                System.out.println("======DAFTAR KONTAK======");
+                System.out.printf("%-3s","No.");
+                cetakHeader();
+                for (int i=0;i<nama.length;i++) {
+                    int nomor = i+1;
+                    String no = String.valueOf(nomor);
+                    System.out.printf("%-3s",no);
+                    cetakKontak(nama[i],alamat[i],noTelp[i],oper[i],grup[i]);
+                };
+                System.out.print("Masukkan nomor kontak yang ingin dihapus : ");
+                byte hapus_data = in.nextByte(); hapus_data--;
+                String simpan_nama = nama[hapus_data];
+                System.out.printf("Apakah anda yakin ingin menghapus kontak  %s (1. Ya / 2. Tidak) : ",simpan_nama);
+                byte konfirm_hapus_data = in.nextByte();
+                if(konfirm_hapus_data==1){
+                    nama = hapusNama(nama,hapus_data);
+                    alamat = hapusAlamat(alamat,hapus_data);
+                    noTelp = hapusNoTelp(noTelp,hapus_data);
+                    oper = hapusOper(oper,hapus_data);
+                    grup = hapusGrup(grup,hapus_data);
+                };
+                System.out.printf("Kontak --%s-- Telah Dihapus %n",simpan_nama);
+            };
             System.out.println();
         };
         System.out.println("======PROGRAM SELESAI======");
