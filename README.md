@@ -1,9 +1,9 @@
-# Kodingan_Java_Pemdas
+# Kodingan_Java
 ####################################
 
 KUMPULAN SOURCE CODE TUGAS DAN PRAKTIKUM
 
-MATA KULIAH PEMROGRAMAN DASAR OLEH
+MATA KULIAH PEMROGRAMAN JAVA
 
 ####################################
 
