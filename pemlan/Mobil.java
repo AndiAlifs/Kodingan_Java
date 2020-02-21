@@ -1,12 +1,22 @@
 package pemlan;
 public class Mobil{
-    private int kecepatan;
-    public String nama = "";
-    public String warna= "";
+    public String nama;
+    public String warna;
+    public String tglPajak;
+    public int kecepatan;
+    public Integer penumpang = 2;
+
+    public void info() {
+        System.out.println(this.nama);
+        System.out.println(this.warna);
+        System.out.println(this.kecepatan);
+        System.out.println(this.penumpang.floatValue());
+        System.out.println(this.tglPajak);
+    }
 
     public void setKecepatan(int kec) {
         this.kecepatan = kec;
-    }
+    }z
 
     public void cetakAttribute() {
         System.out.println("Nama mobil : "+nama);
@@ -25,7 +35,7 @@ public class Mobil{
         System.out.println("Kontruktor dibuat");
         nama = parameter;
     }
-    
+
     public Mobil(String parameter, String warnas){
         System.out.println("Kontruktor dibuat");
         nama = parameter;
