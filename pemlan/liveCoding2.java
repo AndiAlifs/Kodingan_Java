@@ -66,7 +66,7 @@ class Buku1{
 }
 
 //class utama
-public class Solution{
+public class liveCoding2{
     //Deklarasi seluruh data
     public static String[] judul= {"Konfigurasi Wireless Routerboard Mikrotik","Instalasi & konfigurasi Jaringan Windows & Linux","Cepat Kuasai PHP dan MySQL","Pengantar Ilmu Sejarah","Runtuhnya Kerajaan Hindu-Jawa","Pemberontakan Indonesia Pada Masa Pendudukan Jeang","Filsafat Manusia","Pengantar Ilmu Filsafat","Filsafat Islam","Pemikiran dan Aktualisasi Pengembangan Pendidikan Islam" ,"Fiqih Sunnah","Ringkasan Shahih Muslim","Dasar - Dasar Ilmu Politik","Sistem Politik Indonesia","Memahami Ilmu Politik"};
     public static String[] penulis = {"Hardana","Bunafit Nugroho","Andreas","Kuntowijoyo","Slamet ","Akira Nagazumi dan Nasution","Abidin dan Zainal","Achmadi Asmoro","Al-Ghazali","Prof. Dr. H. Muhaimin","Imam Hasan Al-Banna","Abu Ahmadi","Miriam Budiarjo","PT Gramedia Pustaka Utama","Robert Michels"};
