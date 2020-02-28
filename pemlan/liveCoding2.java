@@ -1,88 +1,111 @@
 import java.util.*;
 
 class Buku1{
-    public String[] judul_b = new String[10];
-    public String[] penulis_b = new String[10];
-    public String[] penerbit_b = new String[10];
-    public long[] tTerbit_b = new long[10];
-    public String[] kTerbit_b = new String[10];
-    public long[] hargaStat_b = new long[10];
-    public double[] diskon_b = new double[10];
-    public String[] discon_b = new String[10];
-    public String[] kategori_b = new String[10];
-    public long[] hargaAsli_b =new long[judul_b.length];
-    public int[] stok_b = new int[10];
+    //deklarasi variabel sebagai attributes objek
+    private String[] judul_b = new String[10];
+    private long[] hargaStat_b = new long[10];
+    private String[] penulis_b = new String[10];
+    private double[] diskon_b = new double[10];
+    private String[] kategori_b = new String[10];
+    private long[] hargaAsli_b =new long[judul_b.length];
+    private int[] stok_b = new int[10];
 
-
-
+    //set data untuk attributes objek
     public void setAll(int n,int x){
-        this.judul_b[x] = Solution.judul[n];
-        this.penulis_b[x] = Solution.penulis[n];
-        this.hargaStat_b[x] = Solution.hargaStat[n];
-        this.diskon_b[x] = Solution.diskon[n];
-        this.kategori_b[x] = Solution.kategori[n];
-        this.hargaAsli_b[x] = setHargaAsli(this.hargaStat_b[x],this.diskon_b[x]);
-        this.stok_b[x] = Solution.stok[n];
+        this.judul_b[x] = liveCoding2.getJudul(n);
+        this.penulis_b[x] = liveCoding2.getPenulis(n);
+        int temp = liveCoding2.getHarga(n);
+        double disc = liveCoding2.getDiskon(n);
+        this.hargaAsli_b[x] = (int)(temp - (temp*disc));
+        this.stok_b[x] = liveCoding2.getStok(n);
     }
 
-
+    //kosntruktor berdasarkan input mengisi attributes objek
     public Buku1(String s){
         int j=0;
         for (int i=0;i<15;i++){
-            if (tugasOOP1.penulis[i].equals(s)){
+            if (liveCoding2.getPenulis(i).equals(s)){
                 setAll(i,j);
                 j++;
             }
-        }
-        for (int i=0;i<15;i++){
-            if (tugasOOP1.kategori[i].equals(s)){
+            if (liveCoding2.getJudul(i).equals(s)){
                 setAll(i,j);
                 j++;
             }
-        }
-        for (int i=0;i<15;i++){
-            if (tugasOOP1.judul[i].equals(s)){
+            if (liveCoding2.getKategori(i).equals(s)){
+                setAll(i,j);
+                j++;
+            }
+            if (String.valueOf(liveCoding2.getHarga(i)).equals(s)){
                 setAll(i,j);
                 j++;
             }
         }
     }
 
+    //method untuk mengisi nilai setelah di dikurangi diskon
     public long setHargaAsli(long h,double d){
         double temp = h*d;
         long temp1 = h - (long)temp;
         return temp1;
     }
 
-
+    //method untuk mengeluarkan attributes
     public void printAll(){
         for (int i=0; i<=10;i++) {
             if(this.stok_b[i]==0) break;
-            System.out.printf("%-12s :%s%n","Judul Buku",this.judul_b[i]);
-            System.out.printf("%-12s :%s%d%n","Harga Bersih","Rp.",this.hargaAsli_b[i]);
-            System.out.printf("%-12s :%d%n%n","Stok",this.stok_b[i]);
+            System.out.printf("%-12s : %s%n","Judul Buku",this.judul_b[i]);
+            System.out.printf("%-12s : %s%d%n","Harga Bersih","Rp.",this.hargaAsli_b[i]);
+            System.out.printf("%-12s : %d%n%n","Stok",this.stok_b[i]);
         }
     }
 }
 
 //class utama
 public class liveCoding2{
+
     //Deklarasi seluruh data
-    public static String[] judul= {"Konfigurasi Wireless Routerboard Mikrotik","Instalasi & konfigurasi Jaringan Windows & Linux","Cepat Kuasai PHP dan MySQL","Pengantar Ilmu Sejarah","Runtuhnya Kerajaan Hindu-Jawa","Pemberontakan Indonesia Pada Masa Pendudukan Jeang","Filsafat Manusia","Pengantar Ilmu Filsafat","Filsafat Islam","Pemikiran dan Aktualisasi Pengembangan Pendidikan Islam" ,"Fiqih Sunnah","Ringkasan Shahih Muslim","Dasar - Dasar Ilmu Politik","Sistem Politik Indonesia","Memahami Ilmu Politik"};
-    public static String[] penulis = {"Hardana","Bunafit Nugroho","Andreas","Kuntowijoyo","Slamet ","Akira Nagazumi dan Nasution","Abidin dan Zainal","Achmadi Asmoro","Al-Ghazali","Prof. Dr. H. Muhaimin","Imam Hasan Al-Banna","Abu Ahmadi","Miriam Budiarjo","PT Gramedia Pustaka Utama","Robert Michels"};
-    public static String[] penerbit = {"Andy","Andy","Andy","Bentang Budaya","Bentang Budaya","Bentang Budaya","Pustaka Firdaus","Pustaka Firdaus","Pustaka Firdaus","Pena Pundi Aksana","Pena Pundi Aksana","Pena Pundi Aksana","Rajawali","Rajawali","Rajawali"};
-    public static long[] tTerbit = {2012,2005,2010,2016,2013,2014,2011,2017,2013,2000,1999,2014,2012,1998,1997};
-    public static String[] kTerbit = {"Yogyakarta","Malang","Yogyakarta","Jakarta","Bandung","Surabaya","Jember","Bandung","Jakarta","Yogyakarta","Surabaya","Bandung","Malang","Jember","Yogyakarta"};
-    public static long[] hargaStat={20000,50000,30000,15000,75000,50000,40000,95000,20000,45000,23000,60000,70000,50000,46000};
-    public static double[] diskon = {0.20,0.5,0.15,0.3,0.25,0.4,0.7,0.6,0.15,0.7,0.5,0.9,0.40,0.45,0.78};
-    public static String[] discon = {"20%","50%","15%","30%","25%","40%","70%","60%","15%","70%","50%","90%","40%","45%","78%"};
-    public static String[] kategori = {"Teknologi","Teknologi","Teknologi","Sejarah","Sejarah","Sejarah","Filsafat","Filsafat","Filsafat","Agama","Agama","Agama","Politik","Politik","Politik"};
-    public static int[] stok = {4,5,6,7,8,9,10,3,4,5,6,7,8,2,12};
+    private static String[] judul= {"Konfigurasi Wireless Routerboard Mikrotik","Instalasi & konfigurasi Jaringan Windows & Linux","Cepat Kuasai PHP dan MySQL","Pengantar Ilmu Sejarah","Runtuhnya Kerajaan Hindu-Jawa","Pemberontakan Indonesia Pada Masa Pendudukan Jeang","Filsafat Manusia","Pengantar Ilmu Filsafat","Filsafat Islam","Pemikiran dan Aktualisasi Pengembangan Pendidikan Islam" ,"Fiqih Sunnah","Ringkasan Shahih Muslim","Dasar - Dasar Ilmu Politik","Sistem Politik Indonesia","Memahami Ilmu Politik"};
+    private static String[] penulis = {"Hardana","Bunafit Nugroho","Andreas","Kuntowijoyo","Slamet ","Akira Nagazumi dan Nasution","Abidin dan Zainal","Achmadi Asmoro","Al-Ghazali","Prof. Dr. H. Muhaimin","Imam Hasan Al-Banna","Abu Ahmadi","Miriam Budiarjo","PT Gramedia Pustaka Utama","Robert Michels"};
+    private static int[] hargaStat={20000,50000,30000,15000,75000,50000,40000,95000,20000,45000,23000,60000,70000,50000,46000};
+    private static double[] diskon = {0.20,0.05,0.15,0.03,0.25,0.04,0.07,0.06,0.15,0.07,0.05,0.09,0.40,0.45,0.78};
+    private static String[] kategori = {"Teknologi","Teknologi","Teknologi","Sejarah","Sejarah","Sejarah","Filsafat","Filsafat","Filsafat","Agama","Agama","Agama","Politik","Politik","Politik"};
+    private static int[] stok = {4,5,6,7,8,9,10,3,4,5,6,7,8,2,12};
+
+    //getter diskon
+    public static double getDiskon(int i){
+        return diskon[i];
+    }
+
+    //getter penulis
+    public static String getPenulis(int i){
+        return penulis[i];
+    }
+
+    //getter kategori
+    public static String getKategori(int i){
+        return kategori[i];
+    }
+
+    //getter judul
+    public static String getJudul(int i){
+        return judul[i];
+    }
+
+    //getter harga
+    public static int getHarga(int i){
+        return hargaStat[i];
+    }
+
+    //getter stok
+    public static int getStok(int i){
+        return stok[i];
+    }
 
     //method main
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        byte n = 10;
+        byte n = 0;
         do {
             n = scan.nextByte();
             if(n==0) break;
@@ -90,6 +113,6 @@ public class liveCoding2{
             cari = scan.nextLine();
             Buku1 a = new Buku1(cari);
             a.printAll();
-        } while (n!=0);
-        }
+        } while (true);
     }
+}
