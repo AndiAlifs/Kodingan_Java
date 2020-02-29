@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 class Buku1{
     //deklarasi variabel sebagai attributes objek
@@ -20,8 +20,18 @@ class Buku1{
         this.stok_b[x] = liveCoding2.getStok(n);
     }
 
-    //kosntruktor berdasarkan input mengisi attributes objek
+    //kosntruktor overloading parameter string
     public Buku1(String s){
+        CariBuKu(s);
+    }
+
+    //kontruktor overloading parameter integer
+    public Buku1(int s){
+        CariBuKu(String.valueOf(s));
+    }
+
+    //method CariBuku untuk sebagai setter attributes objek
+    public void CariBuKu(String s){
         int j=0;
         for (int i=0;i<15;i++){
             if (liveCoding2.getPenulis(i).equals(s)){
@@ -56,7 +66,7 @@ class Buku1{
             if(this.stok_b[i]==0) break;
             System.out.printf("%-12s : %s%n","Judul Buku",this.judul_b[i]);
             System.out.printf("%-12s : %s%d%n","Harga Bersih","Rp.",this.hargaAsli_b[i]);
-            System.out.printf("%-12s : %d%n%n","Stok",this.stok_b[i]);
+            System.out.printf("%-12s : %d%n","Stok",this.stok_b[i]);
         }
     }
 }
@@ -109,10 +119,17 @@ public class liveCoding2{
         do {
             n = scan.nextByte();
             if(n==0) break;
-            String cari = scan.nextLine();
-            cari = scan.nextLine();
-            Buku1 a = new Buku1(cari);
-            a.printAll();
+            else if (n==2){
+                int cari = scan.nextInt();
+                Buku1 a = new Buku1(cari);
+                a.printAll();
+            }
+            else {
+                String cari = scan.nextLine();
+                cari = scan.nextLine();
+                Buku1 a = new Buku1(cari);
+                a.printAll();
+            }
         } while (true);
     }
 }
