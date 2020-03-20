@@ -11,6 +11,7 @@ public class Mahasiswa{
     SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
     String tgl ="";
 
+    
     public void setNama(String a) {
         this.nama = a;
     }
