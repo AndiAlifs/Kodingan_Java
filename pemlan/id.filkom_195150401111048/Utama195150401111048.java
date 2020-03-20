@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Utama195150401111048{
     public static void main(String[] args) {
-        Scanner scan = new Scanner(System.in);
+        Scanner ss = new Scanner(System.in);
         ArrayList<Mahasiswa> listMahasiswa = new ArrayList<Mahasiswa>();
         while (true) {
             Mahasiswa mahasiswa = new Mahasiswa();
