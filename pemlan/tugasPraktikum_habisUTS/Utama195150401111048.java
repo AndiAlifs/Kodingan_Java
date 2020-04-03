@@ -57,6 +57,10 @@ public class Utama195150401111048{
             Sales mantab = new Sales(nama,nip,taonMasuk,gajiPokok,keluarga,jumlahAnak,hargaBarang,stokBarang,barangTerjual);
             System.out.println();
             mantab.printAll();
+        } else{
+            Pegawai mantab = new Pegawai(nama,nip,taonMasuk,gajiPokok,keluarga,jumlahAnak);
+            System.out.println();
+            mantab.printAll();
         }
         in.close(); 
     }
