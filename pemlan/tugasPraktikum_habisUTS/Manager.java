@@ -10,6 +10,6 @@ public class Manager extends Pegawai{
         System.out.println("Bonus : Rp."+getBonus());
         System.out.println("Tunjangan : Rp."+getTunjangan());
         System.out.println("Tunjangan Jabatan : Rp."+(getTotalGaji()*0.1));
-		System.out.println("Total Gaji : Rp."+(getTotalGaji()+(getTotalGaji()*0.1)));
+		System.out.printf("Total Gaji : Rp.%.1f%n",(getTotalGaji()+(getTotalGaji()*0.1)));
     } 
 }
