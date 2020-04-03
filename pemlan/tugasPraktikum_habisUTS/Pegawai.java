@@ -78,8 +78,8 @@ public class Pegawai {
 
 	public void printAll(){
 		System.out.println("Gaji pokok : Rp."+gajiPokok);
-		System.out.println("Bonus : Rp."+getBonus());
+		System.out.printf("%s%.1f%n","Bonus : Rp.",getBonus());
 		System.out.println("Tunjangan : Rp."+getTunjangan());
-		System.out.println("Total Gaji : Rp."+getTotalGaji());
+		System.out.printf("Total Gaji : Rp.%.1f%n",getTotalGaji());
 	}
 }
