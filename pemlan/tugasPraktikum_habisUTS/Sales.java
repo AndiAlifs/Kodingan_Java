@@ -4,7 +4,7 @@ public class Sales extends Pegawai {
     private int barangTerjual;
     public double getBonusTambahan(){
         double temp = 0;
-        if ((barangTerjual / stockBarang) > 0.8){
+        if ((1.00*barangTerjual / stockBarang) > 0.8){
             temp = 0.15 * hargaBarang * barangTerjual;
         } else {
             temp = 0.03 * hargaBarang * barangTerjual;
