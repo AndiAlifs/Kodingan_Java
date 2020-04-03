@@ -1,8 +1,9 @@
+import java.time.LocalDate;
 
 public class Pegawai {
     private String nama;
     private String noIndukPegawai;
-    private int tahunMasuk;
+    private LocalDate tahunMasuk;
     private double gajiPokok;
     private boolean keluarga;
 	private int jumlahAnak;
@@ -10,7 +11,7 @@ public class Pegawai {
 	public Pegawai(String nama, String noIndukPegawai, int tahunMasuk, double gajiPokok, boolean keluarga, int jumlahAnak) {
 		this.nama = nama;
 		this.noIndukPegawai = noIndukPegawai;
-		this.tahunMasuk = tahunMasuk;
+		this.tahunMasuk = LocalDate.of(tahunMasuk,1,1);
 		this.gajiPokok = gajiPokok;
 		this.keluarga = keluarga;
 		this.jumlahAnak = jumlahAnak;
@@ -22,7 +23,7 @@ public class Pegawai {
 	
     public double getBonus(){
 		double temp=0;
-		int lamaKerja = 2020 - tahunMasuk;
+		int lamaKerja = getTahunNow() - getTahunMasuk();
 		if (lamaKerja >= 1 && lamaKerja <= 5 ){
 			temp = gajiPokok *lamaKerja * 0.1; 
 		} else if(lamaKerja>5){
@@ -57,26 +58,22 @@ public class Pegawai {
 	public void setNoIndukPegawai(String noIndukPegawai) {
 		this.noIndukPegawai = noIndukPegawai;
 	}
+
 	public int getTahunMasuk() {
-		return tahunMasuk;
+		return tahunMasuk.getYear();
 	}
-	public void setTahunMasuk(int tahunMasuk) {
-		this.tahunMasuk = tahunMasuk;
+
+	public int getTahunNow() {
+		LocalDate today = LocalDate.now();
+		return today.getYear();
 	}
-	public void setGajiPokok(double gajiPokok) {
-		this.gajiPokok = gajiPokok;
-	}
+
 	public boolean isKeluarga() {
 		return keluarga;
 	}
-	public void setKeluarga(boolean keluarga) {
-		this.keluarga = keluarga;
-	}
+
 	public int getJumlahAnak() {
 		return jumlahAnak;
-	}
-	public void setJumlahAnak(int jumlahAnak) {
-		this.jumlahAnak = jumlahAnak;
 	}
 
 	public void printAll(){
