@@ -1,11 +1,11 @@
-public class SilverTier implements Pelanggan{
+public class SilverTier extends Pelanggan implements MethodInterface {
 
-    public SilverTier(String nama, int poin, int perjalanan) {
-        System.out.printf("%-20s : %s%n","Nama",nama);
-        System.out.printf("%-20s : Silver Tier%n","Tier Pelanggan");
-        System.out.printf("%-20s : %dkm%n","Jarak yang ditempuh",perjalanan);
-        System.out.printf("%-20s : Rp. %d%n","Total Biaya",getHarga(perjalanan));
-        System.out.printf("%-20s : %d(+%d)%n","Poin Saat Ini",poin+getPoinTambahan(poin,perjalanan),getPoinTambahan(poin,perjalanan));
+    public SilverTier(String nama, int jarak, int poin) {
+        super(nama, jarak, poin);
+        tier = "Silver Tier";
+        poinNew = getPoinTambahan(this.poin, this.jarak);
+        ongkos = getHarga(jarak);
+        printAll();
     }
     
     @Override

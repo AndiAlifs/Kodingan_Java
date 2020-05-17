@@ -1,11 +1,11 @@
-public class NonTier implements Pelanggan {
+public class NonTier extends Pelanggan implements MethodInterface {
 
-    public NonTier(String nama, int poin, int perjalanan) {
-        System.out.printf("%-20s : %s%n","Nama",nama);
-        System.out.printf("%-20s : Non-Tier%n","Tier Pelanggan");
-        System.out.printf("%-20s : %dkm%n","Jarak yang ditempuh",perjalanan);
-        System.out.printf("%-20s : Rp. %d%n","Total Biaya",getHarga(perjalanan));
-        System.out.printf("%-20s : %d(+%d)%n","Poin Saat Ini",poin+getPoinTambahan(poin,perjalanan),getPoinTambahan(poin,perjalanan));
+    public NonTier(String nama, int jarak, int poin) {
+        super(nama, jarak, poin);
+        tier = "Non Tier";
+        poinNew = getPoinTambahan(this.poin, this.jarak);
+        ongkos = getHarga(jarak);
+        printAll();
     }
 
     @Override

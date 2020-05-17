@@ -1,15 +1,16 @@
-public class GoldTier implements Pelanggan{
+public class GoldTier extends Pelanggan implements MethodInterface {
 
-    public GoldTier(String nama, int poin, int perjalanan) {
-        System.out.printf("%-20s : %s%n","Nama",nama);
-        System.out.printf("%-20s : Gold Tier%n","Tier Pelanggan");
-        System.out.printf("%-20s : %dkm%n","Jarak yang ditempuh",perjalanan);
-        System.out.printf("%-20s : Rp. %d%n","Total Biaya",getHarga(perjalanan));
-        System.out.printf("%-20s : %d(+%d)%n","Poin Saat Ini",poin+getPoinTambahan(poin,perjalanan),getPoinTambahan(poin,perjalanan));
+    public GoldTier(String nama, int jarak, int poin) {
+        super(nama, jarak, poin);
+        tier = "Gold Tier";
+        poinNew = getPoinTambahan(this.poin, this.jarak);
+        ongkos = getHarga(jarak);
+        printAll();
+
     }
     
     @Override
-    public int getHarga(final int perjalanan) {
+    public int getHarga(int perjalanan) {
         int harga = 10000;
         if (perjalanan > 2) {
             harga += 2500 * (perjalanan - 2);
@@ -25,4 +26,5 @@ public class GoldTier implements Pelanggan{
         }
         return temp;
     }
+
 }

@@ -12,10 +12,11 @@ public class Main195150401111048{
         System.out.println("======Taksi Online Sanggoleo======");
         Pelanggan x;
         switch(tier){
-            case 1: x = new NonTier(nama, poin, perjalanan);
-            case 2: x = new BronzeTier(nama, poin, perjalanan);
-            case 3: x = new SilverTier(nama, poin, perjalanan);
-            case 4: x = new GoldTier(nama, poin, perjalanan);
+            case 1: x = new NonTier(nama, perjalanan, poin); break;
+            case 2: x = new BronzeTier(nama, perjalanan, poin); break;
+            case 3: x = new SilverTier(nama, perjalanan, poin); break;
+            case 4: x = new GoldTier(nama, perjalanan, poin); break;
         }
+
     }
 }
