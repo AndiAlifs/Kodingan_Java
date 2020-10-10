@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="2.11">
+    <attributes>
+        <attribute name="name" value=""/>
+        <attribute name="authors" value="Andi Alifsyach"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2020-10-10 09:31:01 PM"/>
+        <attribute name="created" value="QW5kaSBBbGlmc3lhY2g7QU5EWUFMWUY7MjAyMC0xMC0xMDswODo1ODoyOSBQTTszMjEw"/>
+        <attribute name="edited" value="QW5kaSBBbGlmc3lhY2g7QU5EWUFMWUY7MjAyMC0xMC0xMDswOTozMTowMSBQTTsxOzMzMDA="/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="gelasTemp" type="Integer" array="False" size=""/>
+            <declare name="gelas1" type="Integer" array="False" size=""/>
+            <declare name="gelas2" type="Integer" array="False" size=""/>
+            <declare name="gelas3" type="Integer" array="False" size=""/>
+            <input variable="gelas1"/>
+            <input variable="gelas2"/>
+            <input variable="gelas3"/>
+            <if expression="gelas1 &gt;= gelas2">
+                <then>
+                    <assign variable="gelasTemp" expression="gelas1"/>
+                    <assign variable="gelas1" expression="gelas2"/>
+                    <assign variable="gelas2" expression="gelasTemp"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="gelas2 &gt;= gelas3">
+                <then>
+                    <assign variable="gelasTemp" expression="gelas2"/>
+                    <assign variable="gelas2" expression="gelas3"/>
+                    <assign variable="gelas3" expression="gelasTemp"/>
+                </then>
+                <else/>
+            </if>
+            <if expression="gelas1 &gt;= gelas2">
+                <then>
+                    <assign variable="gelasTemp" expression="gelas1"/>
+                    <assign variable="gelas1" expression="gelas2"/>
+                    <assign variable="gelas2" expression="gelasTemp"/>
+                </then>
+                <else/>
+            </if>
+            <output expression="gelas1" newline="True"/>
+            <output expression="gelas2" newline="True"/>
+            <output expression="gelas3" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
