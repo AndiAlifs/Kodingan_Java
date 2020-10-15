@@ -4,9 +4,11 @@ public class LatihanArray2 {
             Scanner in = new Scanner (System.in);
             int joko=in.nextInt();
             int array[] = new int[10];
+
             for (int i=0;i<array.length;i++){
               array[i]=in.nextInt();
             }
+            
             for (int i=0;i<array.length;i++){
               if (array[i]==joko) {
                 System.out.print(array[i]+" ");

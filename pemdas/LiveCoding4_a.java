@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Solution {
+public class LiveCoding4_a {
 
     static int maxSubsquare(int[][] square) {
         
